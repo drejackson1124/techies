@@ -1,0 +1,25 @@
+.signin-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2D0054;
+  }
+  
+  .signin-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-signin {
+    background-color: #FF6F00;
+    color: #fff;
+  }
+  
+  .btn-signin:hover {
+    background-color: #e65b00;
+  }
