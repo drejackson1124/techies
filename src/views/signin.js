@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../middleware/authcontext';
 import '../styles/signin.css';
+import helper from '../middleware/hf';
 
 function SignIn() {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
@@ -12,16 +13,22 @@ function SignIn() {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setUser({ name: credentials.username });
-    navigate('/');
+    const final = await helper.signIn(credentials);
+    console.log(final);
+    if(final){
+        setUser({ name: credentials.username });
+        navigate('/');
+    } else {
+        alert('Something isnt right. Please try again.')
+    }
   };
 
   return (
     <div className="signin-page">
       <div className="signin-card">
-        <h2 className="text-center mb-4">IT Study Buddy</h2>
+        <h2 className="text-center mb-4">Troop Techies</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group mb-3">
             <label htmlFor="username" className="form-label">Username</label>
@@ -48,6 +55,7 @@ function SignIn() {
             />
           </div>
           <button type="submit" className="btn btn-signin w-100">Sign In</button>
+          <Link to='/sign-up' className='text-center'>Don't have an account? Click here.</Link>
         </form>
       </div>
     </div>

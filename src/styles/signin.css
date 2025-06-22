@@ -1,4 +1,4 @@
-.signin-page {
+.signin-page, .auth-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,7 @@
     background-color: #2D0054;
   }
   
-  .signin-card {
+  .signin-card, .auth-form {
     background-color: #fff;
     padding: 2rem;
     border-radius: 0.5rem;
